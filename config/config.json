@@ -1,0 +1,12 @@
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/socketsTest",
+    "EXPRESS_SESSION_PW": "ovCR8Bfa43VjJv69j2dH61OyPQxSqLwj"
+  },
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/sockets",
+    "EXPRESS_SESSION_PW": "X2HarhWdbHtrCOgOd44gy5QSt3QzAUW9"
+  }
+}

@@ -1,0 +1,44 @@
+<body>
+<form action="/form" method="post">
+    <div class="form-group">
+        <label for="buyQuantity">Quantity</label>
+        <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="quantity">
+    </div>
+    <div class="form-group">
+        <label for="buyPrice">Price</label>
+        <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
+    </div>
+    <input type="hidden" name="asset" value='D'>
+    <div class="text-center">
+        <button type="submit" class="btn btn-outline-dark">Buy</button>
+    </div>
+</form>
+
+<div>
+    <ul id="offers">
+
+    </ul>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var form = io('/form');
+
+        $('form').submit(function(){
+            form.emit('offerCreated', 'its working');
+            return false;
+        });
+
+        form.on('offerCreated', function(msg){
+            $('#offers').append($('<li>').text(msg));
+        });
+        form.on('aaaa', function(msg){
+            $('#offers').append($('<li>').text(msg));
+        });
+    });
+</script>
+</body>
